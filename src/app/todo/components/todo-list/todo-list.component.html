@@ -1,0 +1,9 @@
+<div *ngIf="vm$ |async as vm">
+  <ngb-accordion *ngIf="vm.user"  #acc="ngbAccordion">
+    <ngb-panel *ngFor="let todo of vm.todos" title="{{todo.todo}}">
+      <ng-template ngbPanelContent>
+        {{todo.todo}}
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

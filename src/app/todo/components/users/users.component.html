@@ -1,0 +1,26 @@
+<table *ngIf="vm$ |async as vm" class="table table-striped bg-light">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Email</th>
+    <th scope="col">Image</th>
+    <th scope="col">Selected</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of vm.users; index as i">
+    <td>
+      {{ user.id }}
+    </td>
+    <td>{{ user.email }}</td>
+    <td><img
+      [ngSrc]="user.image"
+      width="40"
+      height="40"
+      class="me-2"
+      alt="user"/></td>
+    <td><input [checked]="vm.selectedUser === user" (change)="onUserSelectedChanged(user)" type="radio"></td>
+
+  </tr>
+  </tbody>
+</table>
